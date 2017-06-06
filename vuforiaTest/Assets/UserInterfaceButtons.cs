@@ -1,9 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
+
+public class Test : MonoBehaviour
+{
+    public GameObject Window;
+
+    public void WindowSetActive()
+    {
+        Window.SetActive(!Window.active);
+    }
+    
+}
 
 public class UserInterfaceButtons : MonoBehaviour
 {
+
 	public float scalingSpeed = 0.03f;
 	public float rotationSpeed = 70.0f;
 	public float translationSpeed = 5.0f;
@@ -16,8 +29,10 @@ public class UserInterfaceButtons : MonoBehaviour
 	bool repeatPositionDown = false;
 	bool repeatPositionLeft = false;
 	bool repeatPositionRight = false;
-	
-	void Update ()
+
+    
+
+    void Update ()
 	{
 		if (repeatScaleUp) {
 			ScaleUpButton ();
