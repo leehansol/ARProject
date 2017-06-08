@@ -7,10 +7,14 @@ public class Test : MonoBehaviour
 {
     public GameObject Window;
 
+
+
     public void WindowSetActive()
     {
         Window.SetActive(!Window.active);
     }
+
+    
     
 }
 
@@ -29,11 +33,30 @@ public class UserInterfaceButtons : MonoBehaviour
 	bool repeatPositionDown = false;
 	bool repeatPositionLeft = false;
 	bool repeatPositionRight = false;
+    public GameObject PanelInfoCanvas;
 
+    
+    void Start()
+    {
+
+        /*
+        DialogDataAlert alert = new DialogDataAlert("START", "Game Start!", delegate ()
+        {
+            Debug.Log("OK Pressed");
+        });
+
+        DialogManager.Instance.Push(alert);
+        */
+
+        PanelInfoCanvas.SetActive(false);
+        //GameObject.FindWithTag("Info").SetActive(false);
+    }
+    
     
 
     void Update ()
 	{
+        
 		if (repeatScaleUp) {
 			ScaleUpButton ();
 		}
@@ -209,4 +232,26 @@ public class UserInterfaceButtons : MonoBehaviour
 	{
 		Debug.Log ("Any");
 	}
+
+    public void Alert()
+    {
+        /*
+        DialogDataAlert alert = new DialogDataAlert("START", "Game Start!", delegate ()
+        {
+            Debug.Log("OK Pressed");
+        });
+
+        DialogManager.Instance.Push(alert);
+        */
+        
+
+        PanelInfoCanvas.SetActive(true);
+    }
+
+    
+    public void PressOK()
+    {
+        GameObject.FindWithTag("Info").SetActive(false);
+    }
+    
 }
